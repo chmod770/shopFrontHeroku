@@ -1,3 +1,84 @@
-<p>
-  homepage works!
-</p>
+<app-header></app-header>
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-3">
+
+      <h1 class="my-4">Categories</h1>
+      <div *ngFor="let category of categories; let categoryNumber = index;"  class="list-group">
+        <a href="/items/itemsWithCategoryId/{{category.id}}" class="list-group-item">{{category.name}}</a>
+      </div>
+
+    </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+
+      <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner" role="listbox" >
+          <div *ngFor="let promotedItem of promotedItems; let index= index;" [class.active]="index==0" class="carousel-item">
+            <img class="d-block img-fluid" width="250" [src]="promotedItem.imageLocation" alt="First slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div class="row top-buffer">
+        <div *ngFor="let item of items" class="col-lg-4 col-md-6 mb-4">
+          <div class="card h-100">
+            <a href="/item/{{item.id}}"><img class="card-img-top" [src]="item.imageLocation" alt="700x400"></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="/item/{{item.id}}">{{item.name}}</a>
+              </h4>
+              <h5>${{item.price}}</h5>
+              <p class="card-text">{{item.description}}</p>
+            </div>
+            <div class="card-footer">
+              <!--<small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>-->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+  <!-- /.row -->
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li *ngIf="!first" class="page-item"><a class="page-link" [href]="(pageNumber-1)">Previous</a></li>
+
+          <li *ngFor="let number of pageNumbers;let index = index;" [class.active]="index==pageNumber-1" class="page-item"><a class="page-link" [href]="index+1" >{{index+1}}</a></li>
+          <li *ngIf="!last" class="page-item"><a class="page-link" [href]="(pageNumber+1)">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+  <!--/.row/-->
+
+</div>
+<!-- /.container -->
+<app-footer></app-footer>
