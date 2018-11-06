@@ -10,7 +10,7 @@ import {Category} from "../category";
 })
 export class CategoryService {
 
-  private baseUrl:string = "https://boiling-beyond-17763.herokuapp.com/categories";
+  private baseUrl:string = "https://boiling-beyond-17763.herokuapp.com/api/categories";
   private headers = new Headers({'Content-Type':'application/json'});
   private options = new RequestOptions({headers:this.headers});// here we put our header
   private category = new Category();

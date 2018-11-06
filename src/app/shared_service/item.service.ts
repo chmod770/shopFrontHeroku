@@ -11,7 +11,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class ItemService {
-  private baseUrl:string = "https://boiling-beyond-17763.herokuapp.com/items";
+  private baseUrl:string = "https://boiling-beyond-17763.herokuapp.com/api/items";
   private headers = new Headers({'Content-Type':'application/json'});
   private options = new RequestOptions({headers:this.headers});// here we put our header
   private item = new Item();
