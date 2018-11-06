@@ -25,7 +25,7 @@
 
         <div class="carousel-inner" role="listbox" >
           <div *ngFor="let promotedItem of promotedItems; let index= index;" [class.active]="index==0" class="carousel-item">
-            <img class="d-block img-fluid" width="250" [src]="promotedItem.imageLocation" alt="First slide">
+            <img class="d-block img-fluid" width="250" height="200" [src]="promotedItem.imageLocation" alt="First slide">
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
